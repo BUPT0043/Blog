@@ -1,0 +1,2 @@
+临时采用、待测试
+http://git.oschina.net/free/Mybatis_PageHelper

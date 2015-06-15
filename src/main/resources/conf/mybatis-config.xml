@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration 
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 将类model类重命名 mapper调用方便 -->
+	<typeAliases>
+		<typeAlias alias="User" type="cn.dx.model.User" />
+		<typeAlias alias="Student" type="cn.dx.model.Student" />
+		<typeAlias alias="Grade" type="cn.dx.model.Grade" />
+	</typeAliases>
+
+	<plugins>
+		<plugin interceptor="com.github.pagehelper.PageHelper">
+			<property name="dialect" value="hsqldb" />
+			<property name="pageSizeZero" value="true" />
+			<property name="reasonable" value="true" />
+		</plugin>
+	</plugins>
+</configuration>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                       http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+                       http://www.springframework.org/schema/context
+                       http://www.springframework.org/schema/context/spring-context-4.0.xsd
+                       http://www.springframework.org/schema/jee
+                       http://www.springframework.org/schema/jee/spring-jee-4.1.xsd
+                       http://www.springframework.org/schema/mvc
+                       http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
+                       http://www.springframework.org/schema/util 
+                       http://www.springframework.org/schema/util/spring-util-4.1.xsd">
+
+	<context:annotation-config/>
+    <context:component-scan base-package="cn.dx.controller" />
+    <mvc:annotation-driven />
+
+	<!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->
+	<bean id="mappingJacksonHttpMessageConverter"
+		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+		<property name="supportedMediaTypes">
+			<list>
+				<value>text/html;charset=UTF-8</value>
+			</list>
+		</property>
+	</bean>
+	<bean
+         class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+         <property name="prefix" value="/WEB-INF/jsp/" />
+         <property name="suffix" value=".jsp" />
+    </bean>
+    
+    <mvc:view-controller path="/" view-name="forward:/index"/>
+    <mvc:default-servlet-handler/>
+    <!-- 静态资源映射 -->
+    <mvc:resources mapping="/images/**" location="/WEB-INF/images/" />
+    <mvc:resources mapping="/css/**" location="/WEB-INF/css/" />
+    <mvc:resources mapping="/js/**" location="/WEB-INF/js/" />
+     <mvc:resources mapping="/media/**" location="/WEB-INF/media/" />
+    <mvc:resources mapping="/script/**" location="/WEB-INF/script/" />
+    <mvc:resources mapping="/char/**" location="/WEB-INF/char/" />
+    <mvc:resources mapping="/HeadImg/**" location="/WEB-INF/upload/HeadImg/" />
+    <mvc:resources mapping="/Images/**" location="/WEB-INF/upload/Images/" />
+    <mvc:resources mapping="/attach/**" location="/WEB-INF/upload/attach/" />
+    <mvc:resources mapping="/Imagesnail/**" location="/WEB-INF/upload/Imagesnail/" />
+    <mvc:resources mapping="/MsgMessage/**" location="/WEB-INF/upload/MsgMessage/" />
+    <mvc:resources mapping="/umeditor/**" location="/WEB-INF/umeditor/" />
+	
+    <!-- 文件上传相关 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!--one of the properties available;the maximum file size in bytes 设定上传文件最大大小为20兆-->
+        <property name="maxUploadSize" value="20485760"/>
+    </bean>
+</beans>
