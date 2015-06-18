@@ -50,11 +50,11 @@ public class LoginController {
             // request.getSession().setAttribute("UuserModel", user);
             // return "/index";
             // }else{
-            // model.addAttribute("error", "瀵嗙爜涓嶆纭�");
+            // model.addAttribute("error", "error");
             // return "login";
             // }
             // }else{
-            // model.addAttribute("error", "璇ョ敤鎴蜂笉瀛樺湪");
+            // model.addAttribute("error", "error");
             //
             // }
             // return "login";
