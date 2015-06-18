@@ -9,8 +9,9 @@ package cn.dx.controller;
 /**
  *
  * @author qihong
- *
+ *  用户注册
  */
 public class UserRegistController {
 
+    
 }

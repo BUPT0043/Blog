@@ -23,9 +23,11 @@
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
 	<insert id="insert" parameterType="sy.model.User">
-		insert into user (id, username, pwd,
+		insert into user (id,
+		username, pwd,
 		email, phone)
-		values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR},
+		values (#{id,jdbcType=INTEGER},
+		#{username,jdbcType=VARCHAR},
 		#{pwd,jdbcType=VARCHAR},
 		#{email,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR})
 	</insert>
@@ -86,7 +88,8 @@
 	</update>
 	<update id="updateByPrimaryKey" parameterType="sy.model.User">
 		update user
-		set username = #{username,jdbcType=VARCHAR},
+		set
+		username = #{username,jdbcType=VARCHAR},
 		pwd = #{pwd,jdbcType=VARCHAR},
 		email = #{email,jdbcType=VARCHAR},
 		phone = #{phone,jdbcType=VARCHAR}

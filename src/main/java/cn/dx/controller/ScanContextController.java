@@ -9,7 +9,7 @@ package cn.dx.controller;
 /**
  *
  * @author qihong
- *
+ * 浏览博客
  */
 public class ScanContextController {
 

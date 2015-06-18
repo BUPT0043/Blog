@@ -9,7 +9,7 @@ package cn.dx.controller;
 /**
  *
  * @author qihong
- *
+ * 博客列表
  */
 public class ShowContextController {
 
